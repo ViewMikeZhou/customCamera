@@ -1,0 +1,12 @@
+customCamera/.idea/
+customCamera/gradle.properties
+customCamera/settings.gradle
+customCamera/gradlew
+customCamera/gradlew.bat
+customCamera/app/proguard-rules.pro
+customCamera/app/src/androidTest/java/com/zhou/customcamera/ExampleInstrumentedTest.java
+customCamera/gradle/wrapper/gradle-wrapper.jar
+customCamera/gradle/wrapper/gradle-wrapper.properties
+customCamera/opengl/proguard-rules.pro
+customCamera/opengl/src/androidTest/java/com/zhou/opengl/ExampleInstrumentedTest.java
+customCamera/opengl/src/test/java/com/zhou/opengl/ExampleUnitTest.java
