@@ -10,3 +10,6 @@ customCamera/gradle/wrapper/gradle-wrapper.properties
 customCamera/opengl/proguard-rules.pro
 customCamera/opengl/src/androidTest/java/com/zhou/opengl/ExampleInstrumentedTest.java
 customCamera/opengl/src/test/java/com/zhou/opengl/ExampleUnitTest.java
+customCamera/codecsimple/src/test/java/com/zhou/codecsimple/ExampleUnitTest.java
+customCamera/codecsimple/src/androidTest/java/com/zhou/codecsimple/ExampleInstrumentedTest.java
+customCamera/codecsimple/proguard-rules.pro
