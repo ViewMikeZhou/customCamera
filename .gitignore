@@ -13,3 +13,9 @@ customCamera/opengl/src/test/java/com/zhou/opengl/ExampleUnitTest.java
 customCamera/codecsimple/src/test/java/com/zhou/codecsimple/ExampleUnitTest.java
 customCamera/codecsimple/src/androidTest/java/com/zhou/codecsimple/ExampleInstrumentedTest.java
 customCamera/codecsimple/proguard-rules.pro
+customCamera/ffmpeg/proguard-rules.pro
+customCamera/wuwangffmpeg/src/test/java/com/zhou/wuwangffmpeg/ExampleUnitTest.java
+customCamera/wuwangffmpeg/src/androidTest/java/com/zhou/wuwangffmpeg/ExampleInstrumentedTest.java
+customCamera/ffmpeg/src/androidTest/java/edu/wuwang/ffmpeg/ExampleInstrumentedTest.java
+customCamera/ffmpeg/src/test/java/edu/wuwang/ffmpeg/ExampleUnitTest.java
+customCamera/wuwangffmpeg/proguard-rules.pro
