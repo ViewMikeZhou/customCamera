@@ -19,3 +19,6 @@ customCamera/wuwangffmpeg/src/androidTest/java/com/zhou/wuwangffmpeg/ExampleInst
 customCamera/ffmpeg/src/androidTest/java/edu/wuwang/ffmpeg/ExampleInstrumentedTest.java
 customCamera/ffmpeg/src/test/java/edu/wuwang/ffmpeg/ExampleUnitTest.java
 customCamera/wuwangffmpeg/proguard-rules.pro
+customCamera/aavt/proguard-rules.pro
+customCamera/aavt/src/androidTest/java/com/wuwang/aavt/ExampleInstrumentedTest.java
+customCamera/aavt/src/test/java/com/wuwang/aavt/ExampleUnitTest.java
