@@ -1,0 +1,107 @@
+// ----------------------------------------------grooovy语法 -----------------------------------------------
+print 'hello gradle'
+def str ="groovy"
+str.padLeft(8,"a")   // groovy 左边填充a
+//================================================= 集合 ===============================================
+for (i in [1,2,3,4,5]){}    //遍历
+
+//  =============================================== 闭包 ===============================================
+    //  1. 有隐式参数 it ；2.闭包一定有返回值
+    def test = {print "hello groovy" }
+    test.call()     //调用1
+    test()          //调用2
+    //有参
+    def test1 =  { int x, int y -> print x+y }
+    test1(1,3)
+
+    int result = 1
+
+    int fab(int number){
+        int result = 1
+        result.upto(number,{num -> result *= num})
+    }
+
+    String str1 = "123456"
+    str1.each { print it }      //遍历
+    str1.find{}
+    str1.any{String s -> s.isNumber()}      //返回true，false
+   def list = str1.collect{it.toUpperCase()}   // 返回值是一个集合
+    //闭包关键字 this，owner，delegate
+    def sciptClouser = {
+        print "this: "+ this            //代表闭包定义处的类
+        print "owner: " + owner         // 闭包定义处的类或对象
+        print "delegate: " + delegate   //代表任意对象，
+    }
+    sciptClouser()          // 打印结果是一样的
+        // 委托 delegate
+    class Person{
+        String name
+        def petty = {"my name is ${name}"}
+        String tostring(){
+            petty()
+        }
+    }
+    class Student{
+        String name
+    }
+
+    def p = new Person("person")
+    def s = new Student("student")
+    p.tostring()        // 输出 my name is person
+
+    p.petty.delegate = s                            // 制定委托
+    p.petty.resolveStrategy=Closure.DELEGATE_FIRST  // 制定委托策略
+    p.tostring()       // 输出 my name is
+
+
+
+//  =============================================== 列表 ===============================================
+    def list11 = [1,2,3,4]              //list 集合
+    def arr = [1,2,3,4] as int []       //数组
+    int [] arr1 = [1,2,3,4]             //数组
+
+//  =============================================== 映射 ===============================================
+    def colors = [red:"ff0000",green:"0ff00",blue:"0000ff"]
+    colors.red = "ffff00"
+    colors.yollow = "xxxxx"     // 添加元素
+
+
+
+//  =============================================== groovy json 操作 ===============================================
+    def listPerson = [new Person(name: "john",age:13),new Person(name: "yuhan",age:14)]
+    JsonOutput.toJson(listPerson)       // 实体转json
+   // def jsonSlpuer = new JsonSlurper()    jsonSlpuer.parse（json） // json转实体类
+
+//  =============================================== xml操作 ===============================================
+    def xmlSluper = new XmlSlurper()           //用来解析xml的关键类
+    def response = xmlSluper.parseText("xml")
+
+    //生成xml数据
+    def sw = new StringWriter()
+   // def xmlBuilder = new MarkupBuilder(sw);  //用来生成xml数据的核心类
+    // xmlBuilder.langs(type:'x',count:'3'){language(flavor:'static',3){...}}
+//  =============================================== 文件操作 ===============================================
+    //所有java中文件的处理groovy都可以使用，groovy扩展了
+    def file = new File('../../groovy.text')
+    file.eachLine {line -> print line}  //获取每一行的内容
+    def text = file.getText()           //获取所有内容
+    def result1 = file.readLines()      //获取每一个行装到一个集合中
+    def reader =file.withReader {reader ->      // 读取
+        char [] buffer = new char [100]
+        reader.read(buffer)
+        return buffer
+    }
+
+    file.withWriter {write -> write.append("xxx")}  //写入
+    //读写object
+    file.withObjectOutputStream {output -> output.writeObject("object")}
+
+//  =============================================== 文件操作 ===============================================
+
+//  =============================================== 文件操作 ===============================================
+
+//  =============================================== 文件操作 ===============================================
+
+//  =============================================== 文件操作 ===============================================
+
+//  =============================================== 文件操作 ===============================================

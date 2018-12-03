@@ -1,0 +1,71 @@
+// ------------------------------------------------ gradle ---------------------------------
+// gradle 组成： 1. groovy核心语法。2.build script block 3. gradle api
+//        优势： 灵活，粒度，扩展，兼容
+
+// gradle执行：setting.gradle => root.project {aavt,app,codecsimple,opengl,wuwagnffmpeg}
+    /**
+     * 配置阶段开始前
+     */
+    this.beforeEvaluate {}
+    /**
+     * 配置阶段完成后
+     */
+    this.afterEvaluate {print "配置完成"}
+
+    /**
+     * build 完成后
+     */
+    this.gradle.buildFinished {pint "执行完成"}
+
+// =============================================== gradle project ===========================================
+    //命令： gradlew projects
+    this.getAllprojects().each {}   //获取所有project命令就是执行此方法
+
+    this.getSubprojects().each {}   //获取此project下的子project
+    this.getParent()                //获取父project
+    this.getRootDir().getAbsolutePath()     //获取
+
+    /**
+     * project api 讲解
+     */
+    project("app",{ Project project ->       //直接找到 app project ,并配置
+        apply plugin :'com.android.application'
+        version '1.0.0-release'
+        dependencies {}
+        android {}
+    })
+
+    project("aavt",{ Project project ->       //直接找到 aavt project ,并配置
+        apply plugin :'com.android.application'
+        version '1.0.0-release'
+        dependencies {}
+        android {}
+    })
+
+     apply from:'../groovy.gradle'  // 引入groovy.gradle
+
+        /**
+         * project 属性 api
+         * 扩展属性  ext{}
+         */
+     subprojects {
+         ext{
+             compileSdkVersion = 25         // 在所有子project中都可以用此属性
+         }
+     }
+    // 或只在root project定义扩展
+    ext{
+        compileSdkVersion = 25           // 直接在 子project中使用 this.compileSdkVersion
+    }
+
+    // gradle.properties中定义属性在所有build.gradle中都可以直接使用
+
+    /**
+     * 文件路径
+     */
+        getRootDir().getAbsolutePath()
+        getProjectDir().getAbsolutePath()
+        getBuildDir().getAbsolutePath()
+     //文件定位
+     def file =file("gradleTest.gradle")    //相对于当前project工程开始查找
+

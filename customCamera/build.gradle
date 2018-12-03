@@ -31,3 +31,22 @@ ext{
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+def getProjects (){
+    this.getAllprojects().eachWithIndex { Project entry, int i ->
+        print  i +" ========" + entry.getName() +"\r\n"
+    }
+}
+
+def getRootPath(){
+    println "根路径： " + this.getRootDir().getAbsolutePath()
+}
+
+getProjects()
+getRootPath()
+
+project("opengl",{ Project project ->       //直接找到 app project
+  println "xxx :  " + project.group
+})
+
+
