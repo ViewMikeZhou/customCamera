@@ -49,4 +49,11 @@ project("opengl",{ Project project ->       //直接找到 app project
   println "xxx :  " + project.group
 })
 
-
+task testString{
+    String str = "xxx.test"
+    println " ================== xxx ============================="
+   String [] s =  str.split('\\.')
+      s.each { String st->
+          println st
+    }
+}
