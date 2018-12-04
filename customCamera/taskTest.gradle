@@ -1,0 +1,56 @@
+// =========================================== Task定义及配置 ============================================
+    //gradlew tasks  查看项目中有多少个task
+
+    //task创建方式 1
+    task helloTask(group:"com.moza",description:"task study") {  //配置group后会被分组
+        println 'i am hello task'
+        doFirst {}                          //执行阶段调用
+        doLast {}                           //执行阶段调用
+    }
+    //task创建方式 2
+    this.tasks.create name:"helloTask"{
+        println "hello task 2"
+    }
+
+    //计算build时间
+    def startBuildTime,endBuildTime
+    this.afterEvaluate {
+        //保证要找的task已经配置完毕
+        def preBuildTask = project.tasks.getByName 'preBuild'
+        preBuildTask.doFirst {
+            startBuildTime = System.currentTimeMillis()
+        }
+        def buildTask =project.tasks.getByName 'build'
+        buildTask.doLast {
+            endBuildTime = System.currentTimeMillis()
+            println 'the build time is' + ${ endBuildTime - startBuildTime}
+        }
+    }
+
+
+// =========================================== Task的执行详解 ============================================
+    // dependsOn 强依赖
+    task taskZ(dependsOn:[taskX,taskY]){}        // taskZ依赖taskX和taskY先执行taskX,taskY
+
+    task task1 << {}            // << 相当于doLast
+
+
+
+// =========================================== Task的依赖和执行顺序 ============================================
+    inputs.file
+    outpus.file
+    task taskX{
+        mustRunAfter taskY
+        shouldRunAfter
+    }
+    task taskY{
+
+    }
+    //制定在任务之间运行， 首先制定 mustRunAfter再制定 dependsOn
+
+
+// =========================================== Task的类型 ============================================
+
+
+
+// =========================================== Task挂接到构建生命周期 ============================================

@@ -69,3 +69,39 @@
      //文件定位
      def file =file("gradleTest.gradle")    //相对于当前project工程开始查找
 
+    /**
+     * 依赖相关
+     */
+     buildscript{ScriptHandler scriptHandler ->
+         scriptHandler.repositories {}
+         scriptHandler.dependencies {
+
+         }
+
+     }
+     //重复包依赖解决方法 exclude
+        implementation 'com.android.support:appcompat-v7:27.1.1'{
+            exclude model:'support-v4'
+            exclude group:'com.android.support'
+            transitive false         //禁止传递依赖
+        }
+
+    /**
+     *  外部命令
+     */
+     task(name:'apkcopy'){
+         doLast{
+             def sourcePath =this.buildDir.path+"/outputs/apk/"
+             def desationPath = 'E:/apk/'
+             def command = "mv -f ${sourcePath} ${desationPath}"
+             exec{
+                 try{
+                     executable('bash')         //  executable 'bash'  方法和参数可以这样写
+                     args('-c',command)
+                     println('this command is execute success')
+                 }catch (GradleException e){
+
+                 }
+             }
+         }
+     }

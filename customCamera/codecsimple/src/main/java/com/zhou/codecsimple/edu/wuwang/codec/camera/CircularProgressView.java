@@ -10,7 +10,6 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.zhou.codecsimple.edu.wuwang.codec.utils.DensityUtils;
 
@@ -18,7 +17,7 @@ import com.zhou.codecsimple.edu.wuwang.codec.utils.DensityUtils;
 /**
  * Description:
  */
-public class CircularProgressView extends ImageView{
+public class CircularProgressView extends android.support.v7.widget.AppCompatImageView{
 
     private int mStroke=5;
     private int mProcess=0;

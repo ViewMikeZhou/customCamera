@@ -38,5 +38,21 @@ dependencies {
     implementation project(':opengl')
 }
 
+task helloTask(group:"com.moza",description:"task study") {
+    println 'i am hello task'
+}
 
-
+//计算build时间
+//def startBuildTime,endBuildTime
+//this.afterEvaluate {
+//    //保证要找的task已经配置完毕
+//    def preBuildTask = project.tasks.getByName 'preBuild'
+//    preBuildTask.doFirst {
+//        startBuildTime = System.currentTimeMillis()
+//    }
+//    def buildTask =project.tasks.getByName 'build'
+//    buildTask.doLast {
+//        endBuildTime = System.currentTimeMillis()
+//        println 'the build time is' + ${ endBuildTime - startBuildTime}
+//    }
+//}
