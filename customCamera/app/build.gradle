@@ -1,19 +1,13 @@
 apply plugin: 'com.android.application'
 
-ext{
-     versionCode = 1
-     versionName = 1.0
-}
 android {
-
-
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.zhou.customcamera"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode versionCode
-        versionName versionName
+        versionCode 1
+        versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
@@ -27,16 +21,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
     externalNativeBuild {
         cmake {
             path "CMakeLists.txt"
-        }
-    }
-
-    sourceSets{
-        main{
-            res.srcDirs = ['src/main/res','src/main/res-camera','src/main/res-setting']
         }
     }
 }
@@ -51,29 +38,8 @@ dependencies {
     implementation project(':opengl')
 }
 
-
-this.afterEvaluate {
-//    this.android.applicationVariants.all { variant ->
-//        def output = variant.outputs.first()
-//        def apkName = "app-${variant.baseName}" + "-${variant.versionName}.apk"
-//        output.outputFile = new File(output.outputFile.parent,apkName)
-//        println output.outputFile.name
-//    }
-//    android.applicationVariants.all { variant ->
-//        variant.outputs.all {
-//            outputFileName = "app_${variant.productFlavors[0].name}_v${variant.versionName}.apk"
-//        }
-//    }
-
-    this.android.applicationVariants.all { variant ->
-        variant.outputs.all { output ->
-           //outputFileName = "moza_${versionCode}"+"_${versionName}"+".apk"
-            outputFileName = " moza-${variant.baseName}" +"-${variant.versionName}.apk"
-        }
-    }
-}
-this.android.externalNativeBuild{
-
+task helloTask(group:"com.moza",description:"task study") {
+    println 'i am hello task'
 }
 
 //计算build时间
