@@ -4,6 +4,7 @@ ext{
      versionCode = 1
      versionName = 1.0
 }
+//提交到远程test仓库
 android {
 
 
