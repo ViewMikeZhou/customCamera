@@ -1,0 +1,17 @@
+1.onMeasure方法
+    可以通过 getViewForPosition(int position ) ==> 获取制定的view
+    通过 measureChildWithMargn   measureChildWithMargins(View child, int widthUsed, int heightUsed)测量制定view的宽高
+    通过    getDecoratedMeasuredWidth(view) 或 child.getMeasureWidth()..  就可以获取
+2.中间留出空间操作
+    可以通过 recycleView.setPadding(left,top,right,bottom)来指定
+    但是必须调用 recycleView.setClipToPadding(false) ,否则由于padding的挤压只会显示一个
+3.SnapHelp,具体实现类 LinearSnapHelp(居中),PageSnapHelp
+    如何获取居中显示的view呢？ => linearSnapHelp.findSnapView() [内部调用findCenter]
+    何时调用呢？              => 重写LayoutManager的 onScrollStateChanged(int state) 当state=0时滑动状态为空闲
+4.可重写方法： onAttachedToWindow 当setLayoutManage后调用
+5.可重写方法： scrollHorizontallyBy(int dx, RecyclerView.Recycler recycler, RecyclerView.State state) 此方法可获取移动的偏移
+              一般在此方法中调用 onlayoutchild进行子控件该如何摆放
+6.getItemCount获取所有的子view不管现不现实，getChileCount获取当前可显示的个数
+7.findFistVisibleItemPosition,findLastVisibleItemPosition  获取当前item位置
+8.getDecoratedTop(view),可获取可见view距离top的距离;
+9.view.setPivotX(0);此设置为当前view的动画以哪个点进行

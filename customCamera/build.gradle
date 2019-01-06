@@ -1,7 +1,9 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+    ext.kotlin_version = '1.2.60'
+
+
     repositories {
         google()
         jcenter()
@@ -11,9 +13,9 @@ buildscript {
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
 
-
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
 
@@ -24,36 +26,36 @@ allprojects {
     }
 }
 
-ext{
-    vCode=22
-    vName="a0.2.2"
+ext {
+    vCode = 22
+    vName = "0.2.2"
 }
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-def getProjects (){
+def getProjects() {
     this.getAllprojects().eachWithIndex { Project entry, int i ->
-        print  i +" ========" + entry.getName() +"\r\n"
+        print i + " ========" + entry.getName() + "\r\n"
     }
 }
 
-def getRootPath(){
+def getRootPath() {
     println "根路径： " + this.getRootDir().getAbsolutePath()
 }
 
 getProjects()
 getRootPath()
 
-project("opengl",{ Project project ->       //直接找到 app project
-  println "xxx :  " + project.group
+project("opengl", { Project project ->       //直接找到 app project
+    println "xxx :  " + project.group
 })
 
-task testString{
+task testString {
     String str = "xxx.test"
     println " ================== xxx ============================="
-   String [] s =  str.split('\\.')
-      s.each { String st->
-          println st
+    String[] s = str.split('\\.')
+    s.each { String st ->
+        println st
     }
 }

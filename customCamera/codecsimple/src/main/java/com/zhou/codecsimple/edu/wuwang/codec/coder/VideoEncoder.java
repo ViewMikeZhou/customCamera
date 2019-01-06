@@ -1,16 +1,15 @@
 package com.zhou.codecsimple.edu.wuwang.codec.coder;
 
+import android.media.MediaCodec;
+import android.media.MediaCodecInfo;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.util.Log;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
-import android.os.Build;
-import android.util.Log;
 
 /**
  * Description:

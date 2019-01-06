@@ -4,6 +4,7 @@ import android.graphics.SurfaceTexture;
 import android.hardware.camera2.CameraAccessException;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.TextureView;
@@ -24,6 +25,8 @@ public class Camera2Activty extends AppCompatActivity {
         setContentView(R.layout.activity_camera2);
         mCameraController = new CameraController(this);
         initView();
+
+        CoordinatorLayout layout;
     }
 
     private void initView() {
